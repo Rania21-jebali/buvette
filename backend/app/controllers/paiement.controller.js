@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Create a Paiement
     const paiement= {
-      userID: req.body.userId,
+      userId: req.body.userId,
     };
   
     // Save Paiement in the database

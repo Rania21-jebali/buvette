@@ -6,7 +6,8 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Create a notation
     const notation = {
-      valeur: req.body.valeur,
+      Valeur: req.body.Valeur,
+      userId: req.body.userId,
     };
   
     // Save Notation in the database

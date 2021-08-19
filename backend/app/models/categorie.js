@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
     const Categorie = sequelize.define("categorie", {
       libelle: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       articleId: {
         type: Sequelize.INTEGER,
