@@ -13,6 +13,9 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ArticleListeComponent } from './components/article-liste/article-liste.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BoardModeratorComponent,
     BoardUserComponent,
     ProfileComponent,
+    ArticleListeComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,

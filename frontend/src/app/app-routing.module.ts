@@ -8,6 +8,8 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ArticleListeComponent } from './components/article-liste/article-liste.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: "ArticleList" , component : ArticleListeComponent },
+  { path: "article/:id" , component : ArticleDetailsComponent }
 ];
 
 @NgModule({
