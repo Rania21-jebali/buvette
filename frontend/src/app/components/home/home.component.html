@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -97,9 +97,6 @@
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
-			<div class="section-title">
-				<h2>LATEST PRODUCTS</h2>
-			</div>
 			<div class="product-slider owl-carousel">
 				<div class="product-item">
 					<div class="pi-pic">
@@ -187,6 +184,24 @@
 				<li><a href="#">SANDWICH</a></li>
 				<li><a href="#">CAKES</a></li>
 			</ul>
+		<div class="row">	
+		<div class="col-lg-3 col-sm-6" *ngFor="let article of article; let i = index"
+		>
+        <div class="product-item">
+		  </div>
+		  <div class="pi-pic">
+			<img src="assets/img/article/1.jpeg" alt="">
+			<div class="pi-links">
+				<a routerLink="cart" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+				<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+			</div>
+		  </div>
+		  <div class="pi-text">
+			<h6>{{article.prix}</h6>
+			<p>{{ article.title }} </p>
+		</div>
+		  </div>
+        </div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
@@ -332,80 +347,7 @@
 	<!-- Banner section end  -->
 
 
-	<!-- Footer section -->
-	<section class="footer-section">
-		<div class="container">
-			<div class="footer-logo text-center">
-				<a href="index.html"><img src="assets/img/logo1.png" alt=""></a>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget about-widget">
-						<h2>Items</h2>
-						<ul>
-							<li><a href="">News items</a></li>
-							<li><a href="">Best items</a></li>
-							<li><a href="">Promotion</a></li>
-						</ul>
-						<img src="assets/img/cards.png" alt="">
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget about-widget">
-						<h2>Our refreshment bar</h2>
-						<ul>
-							<li><a href="">Delivery</a></li>
-							<li><a href="">In regards to</a></li>
-							<li><a href="">Contact us</a></li>
-							<li><a href="">Partners</a></li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget contact-widget">
-						<h2>Your account</h2>
-						<ul>
-							<li><a href="">Personal informations</a></li>
-							<li><a href="">Orders</a></li>
-							<li><a href="">Favorite list</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget contact-widget">
-						<h2>Information</h2>
-						<ul>
-							<li><a href="">Buvetteproxym.tn</a></li>
-							<li><a href="">adress</a></li>
-							<li><a href="">email</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="social-links-warp">
-			<div class="container">
-				<div class="social-links">
-					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-					<a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
-					<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
-					<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
-					<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
-				</div>
-
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 
-<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>, distributed by <a href="https://bootthemes.com/" target="_blank">BootThemes</a></p>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-			</div>
-		</div>
-	</section>
-	<!-- Footer section end -->
-
-
+	<app-footer></app-footer>
 
 	
 

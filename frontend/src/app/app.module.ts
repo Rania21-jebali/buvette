@@ -15,6 +15,16 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { ArticleListeComponent } from './components/article-liste/article-liste.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { UserListeComponent } from './components/user-liste/user-liste.component';
+import { AddImageComponent } from './components/add-image/add-image.component';
+import { CartComponent } from './components/cart/cart.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 
 
 @NgModule({
@@ -29,7 +39,16 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
     BoardUserComponent,
     ProfileComponent,
     ArticleListeComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
+    UserListeComponent,
+    AddImageComponent,
+    CartComponent,
+    HeaderComponent,
+    FooterComponent
+    
   ],
   imports: [
     BrowserModule,

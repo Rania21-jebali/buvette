@@ -8,7 +8,7 @@ module.exports = app => {
   
     // Retrieve all Article
     router.get("/", articles.findAll);
-  
+    
   
     // Retrieve a single Article with id
     router.get("/:id", articles.findOne);

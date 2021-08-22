@@ -1,5 +1,7 @@
+<app-board-admin></app-board-admin>
 <div>
     <div class="submit-form">
+      <h2>Add Article</h2>
       <div *ngIf="!submitted">
         <div class="form-group">
           <label for="title">Title</label>
@@ -33,7 +35,27 @@
               name="prix"
             />
           </div>
-    
+          <div class="form-group">
+            <label for="categorie">Categorie</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+          class="form-control"
+              id="categorie"
+              required
+              [(ngModel)]="article.categorie"
+              name="categorie">
+            <option selected>Cake</option>
+            <option value="1">Jus</option>
+            <option value="2">Drinks</option>
+            <option value="3">Sandwitch</option>
+          </select>
+          </div>
+          <div>
+            <input type="file" name="image" (change)="selectImage($event)" />
+          </div>
+          <br>
+          <div>
+            <button type="submit" (click)="onSubmit()">Upload</button>
+          </div>
         <button (click)="saveArticle()" class="btn btn-success">Submit</button>
       </div>
   

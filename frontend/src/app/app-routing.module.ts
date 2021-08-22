@@ -10,7 +10,14 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { ArticleListeComponent } from './components/article-liste/article-liste.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
-
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { UserListeComponent } from './components/user-liste/user-liste.component';
+import { AddImageComponent } from './components/add-image/add-image.component';
+import { CartComponent } from './components/cart/cart.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   { path: "login" , component : LoginComponent },
@@ -22,7 +29,13 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'profile', component: ProfileComponent },
   { path: "ArticleList" , component : ArticleListeComponent },
-  { path: "article/:id" , component : ArticleDetailsComponent }
+  { path: "article/:id" , component : ArticleDetailsComponent },
+  { path: 'file', component: FormUploadComponent },
+  { path: 'fileList', component: ListUploadComponent },
+  { path: 'fileDetails', component: DetailsUploadComponent },
+  { path: 'users', component: UserListeComponent },
+  { path: 'image', component: AddImageComponent },
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

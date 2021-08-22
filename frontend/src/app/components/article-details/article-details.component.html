@@ -1,3 +1,6 @@
+<app-board-admin></app-board-admin>
+<div class="position-relative">
+  <div class="position-absolute top-0 start-50 translate-middle-x">
 <div>
     <div *ngIf="currentArticle.id" class="edit-form">
       <h4>Article</h4>
@@ -32,18 +35,28 @@
               name="prix"
             />
           </div>
+          <div class="form-group">
+            <label for="categorie">Categorie</label>
+            <input
+              type="text"
+              class="form-control"
+              id="categorie"
+              [(ngModel)]="currentArticle.categorie"
+              name="categorie"
+            />
+          </div>
   
         
       </form>
   
   
-      <button class="badge badge-danger mr-2" (click)="deleteArticle()">
+      <button class="btn btn-danger" (click)="deleteArticle()">
         Delete
       </button>
   
       <button
         type="submit"
-        class="badge badge-success mb-2"
+        class="btn btn-success"
         (click)="updateArticle()"
       >
         Update
@@ -56,4 +69,5 @@
       <p>Cannot access this Article...</p>
     </div>
   </div>
-  
+  </div>
+  </div>

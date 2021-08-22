@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const multer = require('multer');
 const app = express();
 
 var corsOptions = {
@@ -10,7 +10,26 @@ var corsOptions = {
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
 };
 
+const storage = multer.diskStorage({
+  destination: (req, file, callBack) => {
+      callBack(null, 'uploads')
+  },
+  filename: (req, file, callBack) => {
+      callBack(null, `FunOfHeuristic_${file.originalname}`)
+  }
+})
 
+const upload = multer({ storage: storage })
+app.post('/file', upload.single('file'), (req, res, next) => {
+  const file = req.file;
+  console.log(file.filename);
+  if (!file) {
+    const error = new Error('No File')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+    res.send(file);
+})
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -52,6 +71,7 @@ require("./app/routes/facture.routes")(app);
 require("./app/routes/paiement.routes")(app);
 require("./app/routes/espece.routes")(app);
 require("./app/routes/cartebancaire.routes")(app);
+require("./app/routes/file.router")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

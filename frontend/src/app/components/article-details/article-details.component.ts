@@ -13,7 +13,8 @@ export class ArticleDetailsComponent implements OnInit {
   currentArticle: Article = {
     title: '',
     description: '',
-    prix: 0
+    prix: 0,
+    categorie: ''
   };
   message = '';
 
@@ -55,11 +56,13 @@ export class ArticleDetailsComponent implements OnInit {
   }
 
   deleteArticle(): void {
+    this.message = '';
     this.articleService.delete(this.currentArticle.id)
       .subscribe(
         response => {
           console.log(response);
           this.router.navigate(['/articles']);
+          this.message = response.message ? response.message : 'This article was deleted successfully!';
         },
         error => {
           console.log(error);

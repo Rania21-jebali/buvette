@@ -14,6 +14,7 @@ export class ArticleListeComponent implements OnInit {
   currentIndex = -1;
   title = '';
   description='';
+  categorie='';
   prix=0;
 
   constructor(private articleService: ArticleService) { }
@@ -44,6 +45,7 @@ export class ArticleListeComponent implements OnInit {
     this.currentArticle = article;
     this.currentIndex = index;
   }
+ 
 
   removeAllArticles(): void {
     this.articleService.deleteAll()

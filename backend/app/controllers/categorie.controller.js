@@ -6,8 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Create a Categorie
     const categorie = {
-      libelle: req.body.libelle,
-      articleId: req.body.articleId
+      libelle: req.body.libelle
     };
   
     // Save Categorie in the database

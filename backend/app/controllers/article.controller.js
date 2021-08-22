@@ -17,6 +17,7 @@ exports.create = (req, res) => {
       title: req.body.title,
       description: req.body.description,
       prix: req.body.prix,
+      categorieId:req.body.categorieId
     };
   
     // Save Article in the database
@@ -47,6 +48,7 @@ exports.findAll = (req, res) => {
         });
       });
   };
+ 
 
 // Find a single Article with an id
 exports.findOne = (req, res) => {

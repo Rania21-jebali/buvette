@@ -1,3 +1,6 @@
+<app-board-admin></app-board-admin>
+<div class="position-relative">
+  <div class="position-absolute top-0 start-50 translate-middle-x">
 <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
@@ -9,7 +12,7 @@
         />
         <div class="input-group-append">
           <button
-            class="btn btn-outline-secondary"
+            class="btn btn-primary"
             type="button"
             (click)="searchTitle()"
           >
@@ -49,7 +52,11 @@
           <label><strong>Prix:</strong></label>
           {{ currentArticle.prix}}
         </div>
-  
+        <div>
+          <label><strong>Categorie:</strong></label>
+          {{ currentArticle.categorie}}
+        </div>
+        
         <a class="badge badge-warning" routerLink="/article/{{ currentArticle.id }}">
           Edit
         </a>
@@ -62,3 +69,5 @@
     </div>
   </div>
   
+  </div>
+  </div>

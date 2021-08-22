@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
+import { Article } from 'src/app/models/article.model';
+import { ArticleService } from 'src/app/_services/article.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +9,20 @@ import { TokenStorageService } from './_services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  article?: Article[];
+  currentArticle: Article = {};
+  currentIndex = -1;
+  title = '';
+  description='';
+  prix=0;
+
   private roles!: string[];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
   email!: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService,private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -32,5 +41,19 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+  searchTitle(): void {
+    this.currentArticle = {};
+    this.currentIndex = -1;
+
+    this.articleService.findByTitle(this.title)
+      .subscribe(
+        (data: any) => {
+          this.article = data;
+          console.log(data);
+        },
+       ( error: any) => {
+          console.log(error);
+        });
   }
 }

@@ -1,0 +1,70 @@
+<!-- Header section -->
+<header class="header-section">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 text-center text-lg-left">
+                    <!-- logo -->
+                    <a href="./index.html" class="site-logo">
+                        <img src="assets/img/logo1.png" alt="">
+                    </a>
+                </div>
+                <div class="col-xl-6 col-lg-5">
+                    <form class="header-search-form">
+                        <input type="text" placeholder="Search  ....">
+                        <button (click)="searchTitle()"><i class="flaticon-search"></i></button>
+                    </form>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="user-panel">
+                        <div class="up-item">
+                            <i class="flaticon-profile"></i>
+                            <a routerLink="/login">Sign</a> In or <a routerLink="/signup">Create Account</a>
+                            <a routerLink="/profile" class="nav-link" routerLink="profile" >{{ email }}</a>
+                            <a href class="nav-link" (click)="logout()">LogOut</a>
+                        </div>
+                        <div class="up-item">
+                            <div class="shopping-card">
+                                <i class="flaticon-bag"></i>
+                                <span>0</span>
+                            </div>
+                            <a routerLink="cart">Shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="main-navbar">
+        <div class="container">
+            <!-- menu -->
+            <ul class="main-menu">
+                <li><a routerLink="">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">News
+                    <span class="new">New</span>
+                </a></li>
+                <li><a href="#">Items</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Coeffee</a></li>
+                        <li><a href="#">Cakes</a></li>
+                        <li><a href="#">Drinks</a></li>
+                        <li><a href="#">Sandwich</a></li>
+                        <li><a href="#">Jus</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Pages</a>
+                    <ul class="sub-menu">
+                        <li><a href="./product.html">Product Page</a></li>
+                        <li><a href="./category.html">Category Page</a></li>
+                        <li><a href="./cart.html">Cart Page</a></li>
+                        <li><a href="./checkout.html">Checkout Page</a></li>
+                        <li><a href="./contact.html">Contact Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Header section end -->

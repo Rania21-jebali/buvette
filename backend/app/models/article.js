@@ -8,6 +8,14 @@ module.exports = (sequelize, Sequelize) => {
       },
       prix: {
         type: Sequelize.DOUBLE
+      },
+      categorieId: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model:'categories',
+          key:'id'
+        }
       }
     });
   
