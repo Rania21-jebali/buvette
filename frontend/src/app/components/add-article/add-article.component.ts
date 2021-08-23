@@ -14,7 +14,7 @@ export class AddArticleComponent implements OnInit {
     title: '',
     description: '',
     prix: 0, 
-    categorie:''
+    categorieId:0
   };
   submitted = false;
   title = 'fileUpload';
@@ -30,7 +30,7 @@ export class AddArticleComponent implements OnInit {
       title: this.article.title,
       description: this.article.description,
       prix: this.article.prix,
-      categorie:this.article.categorie
+      categorieId:this.article.categorieId
     };
 
     this.articleService.create(data)
@@ -50,7 +50,7 @@ export class AddArticleComponent implements OnInit {
       title: '',
       description: '',
       prix: 0,
-      categorie:''
+      categorieId:0,
     };
   }
   selectImage(event: any) {

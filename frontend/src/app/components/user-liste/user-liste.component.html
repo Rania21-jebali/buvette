@@ -33,8 +33,11 @@
           <label><strong>Email:</strong></label>
           {{ currentUser.email}}
         </div>
+        <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}">
+          Edit
+        </a>
       </div>
-  
+      
       <div *ngIf="!currentUser">
         <br />
         <p>Please click on a User...</p>

@@ -48,5 +48,8 @@ export class UserService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
+  findByEmail(title: any): Observable<User[]> {
+    return this.http.get<User[]>(`${baseUrl}?title=${title}`);
+  }
 
 }

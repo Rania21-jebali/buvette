@@ -1,13 +1,27 @@
-
-<section class="cart_section">
-<div class="container">
-    <table>
-        <tr>
-            <th>Article</th>
-            <th>Prix</th>
-            <th>Quantite</th>
-            <th>Total</th>
-        </tr>
-    </table>
+<app-header></app-header>
+<div class="position-relative">
+    <div class="position-absolute top-0 start-50 translate-middle-x">
+        <h1>Panier</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantite</th>
+        <th scope="col">gggg</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="currentArticle.id" >
+      <tr>
+        <th scope="row" >{{currentArticle.title}}<br>{{currentArticle.description}}</th>
+        <td>{{currentArticle.prix}}</td>
+        <td>1</td>
+        <td><img src="assets/img/trash.svg" alt=""> </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <a routerLink="" class="card-link">Continuer mes achats</a>
+    <a href="#" class="card-link">Commander</a>
 </div>
-</section>
+</div>

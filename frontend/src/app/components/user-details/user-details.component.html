@@ -1,0 +1,74 @@
+<app-board-admin></app-board-admin>
+<div class="position-relative">
+  <div class="position-absolute top-0 start-50 translate-middle-x">
+<div>
+    <div *ngIf="currentUser.id" class="edit-form">
+      <h4>User</h4>
+      <form>
+        <div class="form-group">
+          <label for="firstname">firstname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            [(ngModel)]="currentUser.firstname"
+            name="firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Lastname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            [(ngModel)]="currentUser.lastname"
+            name="lastname"
+          />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              [(ngModel)]="currentUser.email"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              [(ngModel)]="currentUser.phone"
+              name="phone"
+            />
+          </div>
+  
+        
+      </form>
+  
+  
+      <button class="btn btn-danger" (click)="deleteUser()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="btn btn-success"
+        (click)="updateUser()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentUser.id">
+      <br />
+      <p>Cannot access this User...</p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+

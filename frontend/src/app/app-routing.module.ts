@@ -18,6 +18,8 @@ import { AddImageComponent } from './components/add-image/add-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 const routes: Routes = [
   { path: "login" , component : LoginComponent },
@@ -34,8 +36,10 @@ const routes: Routes = [
   { path: 'fileList', component: ListUploadComponent },
   { path: 'fileDetails', component: DetailsUploadComponent },
   { path: 'users', component: UserListeComponent },
+  { path: 'users/:id', component: UserDetailsComponent },
   { path: 'image', component: AddImageComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'upload', component: UploadFilesComponent }
 ];
 
 @NgModule({

@@ -3,6 +3,6 @@ export class Article {
     title?: string;
     description?: string;
     prix?: number ;
-    categorie?:string;
+    categorieId?:number;
   }
   

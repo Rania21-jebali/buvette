@@ -14,7 +14,7 @@ export class ArticleDetailsComponent implements OnInit {
     title: '',
     description: '',
     prix: 0,
-    categorie: ''
+    categorieId:0
   };
   message = '';
 

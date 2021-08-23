@@ -56,9 +56,7 @@ export class UserListeComponent implements OnInit {
         (error: any) => {
           console.log(error);
         });
+
   }
-
-  
-
 }
 

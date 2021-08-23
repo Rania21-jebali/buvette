@@ -23,6 +23,8 @@ import { AddImageComponent } from './components/add-image/add-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 
 
@@ -47,7 +49,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AddImageComponent,
     CartComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UserDetailsComponent,
+    UploadFilesComponent
     
   ],
   imports: [
