@@ -26,7 +26,7 @@ export class AddImageComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.images);
 
-    this.http.post<any>('http://localhost:3000/image', formData).subscribe(
+    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );

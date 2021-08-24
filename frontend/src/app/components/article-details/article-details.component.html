@@ -35,15 +35,21 @@
               name="prix"
             />
           </div>
+      
           <div class="form-group">
-            <label for="categorie">Categorie</label>
-            <input
-              type="text"
-              class="form-control"
-              id="categorie"
+            <label for="categorieId">Categorie</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+          class="form-control"
+              id="categorieId"
+              required
               [(ngModel)]="currentArticle.categorieId"
-              name="categorie"
-            />
+              name="categorieId">
+              <option value="1">Coeffee</option>
+            <option value="2">Cake</option>
+            <option value="3">Sandwitch</option>
+            <option value="4">Drinks</option>
+            <option value="5">Jus</option>
+          </select>
           </div>
   
         

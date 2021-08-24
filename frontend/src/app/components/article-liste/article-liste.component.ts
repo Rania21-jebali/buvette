@@ -14,7 +14,7 @@ export class ArticleListeComponent implements OnInit {
   currentIndex = -1;
   title = '';
   description='';
-  categorieId=0;
+  categorie='';
   prix=0;
 
   constructor(private articleService: ArticleService) { }

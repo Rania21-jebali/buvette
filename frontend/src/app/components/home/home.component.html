@@ -177,27 +177,31 @@
 			<div class="section-title">
 				<h2>BROWSE TOP SELLING PRODUCTS</h2>
 			</div>
-			<ul class="product-filter-menu">
-				<li><a href="#">COEFFEE</a></li>
-				<li><a href="#">JUS</a></li>
-				<li><a href="#">DRINKS</a></li>
-				<li><a href="#">SANDWICH</a></li>
-				<li><a href="#">CAKES</a></li>
+			<ul class="product-filter-menu" >
+				<li><a routerLink="coeffee">COEFFEE</a></li>
+				<li><a routerLink="jus">JUS</a></li>
+				<li><a routerLink="drinks">DRINKS</a></li>
+				<li><a routerLink="sandwitch">SANDWICH</a></li>
+				<li><a routerLink="cake">CAKES</a></li>
 			</ul>
 		<div class="row">	
 		<div class="col-lg-3 col-sm-6" *ngFor="let article of article; let i = index"
 		>
         <div class="product-item">
-		  </div>
+		 
 		  <div class="pi-pic">
 			<img src="assets/img/article/1.jpeg" alt="">
 			<div class="pi-links">
-				<a routerLink="cart" class="add-card" ><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+				<a routerLink="cart" class="add-card"
+				[class.active]="i == currentIndex"
+				(click)="setActiveArticle(article, i)"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 				<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 			</div>
 		  </div>
 		  <div class="pi-text">
-			<h4>{{ article.title }} </h4>
+			<h6>${{article.prix}</h6>
+			<p>{{ article.title }} </p>
+		</div>
 		</div>
 		  </div>
         </div>

@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       callBack(null, 'uploads')
   },
   filename: (req, file, callBack) => {
-      callBack(null, `FunOfHeuristic_${file.originalname}`)
+      callBack(null, `Buvette_${file.originalname}`)
   }
 })
 

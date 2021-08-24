@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Create a Commande
     const commande = {
-      date: req.body.date,
+      quantite: req.body.quantite,
       total: req.body.total,
       description: req.body.description,
       userId: req.body.userId

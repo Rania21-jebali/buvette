@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
     const Commande = sequelize.define("commande", {
-      date: {
-        type: Sequelize.DATE
+      quantite: {
+        type: Sequelize.INTEGER
       },
       total: {
         type: Sequelize.DOUBLE

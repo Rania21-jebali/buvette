@@ -52,9 +52,25 @@
           <label><strong>Prix:</strong></label>
           {{ currentArticle.prix}}
         </div>
-        <div>
+        <div *ngIf="currentArticle.categorieId==1">
           <label><strong>Categorie:</strong></label>
-          {{ currentArticle.categorieId}}
+          Coeffee
+        </div>
+        <div *ngIf="currentArticle.categorieId==2">
+          <label><strong>Categorie:</strong></label>
+          Cake
+        </div>
+        <div *ngIf="currentArticle.categorieId==3">
+          <label><strong>Categorie:</strong></label>
+          Sandwich
+        </div>
+        <div *ngIf="currentArticle.categorieId==4">
+          <label><strong>Categorie:</strong></label>
+          Drinks
+        </div>
+        <div *ngIf="currentArticle.categorieId==5">
+          <label><strong>Categorie:</strong></label>
+          Jus
         </div>
         
         <a class="badge badge-warning" routerLink="/article/{{ currentArticle.id }}">

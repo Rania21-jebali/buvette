@@ -50,7 +50,7 @@ export class AddArticleComponent implements OnInit {
       title: '',
       description: '',
       prix: 0,
-      categorieId:0,
+      categorieId:0
     };
   }
   selectImage(event: any) {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,14 +13,13 @@ export class HomeComponent implements OnInit {
   currentIndex = -1;
   title = '';
   description='';
-  categorieId=0;
+  categorie='';
   prix=0;
 
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.retrieveArticle();
-    
   }
   retrieveArticle(): void {
     this.articleService.getAll()
@@ -69,17 +67,6 @@ export class HomeComponent implements OnInit {
           console.log(data);
         },
        ( error: any) => {
-          console.log(error);
-        });
-  }
-  getArticle(id: string): void {
-    this.articleService.get(id)
-      .subscribe(
-        data => {
-          this.currentArticle = data;
-          console.log(data);
-        },
-        error => {
           console.log(error);
         });
   }

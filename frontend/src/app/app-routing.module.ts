@@ -18,8 +18,11 @@ import { AddImageComponent } from './components/add-image/add-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { CoeffeeComponent } from './components/coeffee/coeffee.component';
+import { CakeComponent } from './components/cake/cake.component';
+import { SandwitchComponent } from './components/sandwitch/sandwitch.component';
+import { DrinksComponent } from './components/drinks/drinks.component';
+import { JusComponent } from './components/jus/jus.component';
 
 const routes: Routes = [
   { path: "login" , component : LoginComponent },
@@ -36,10 +39,13 @@ const routes: Routes = [
   { path: 'fileList', component: ListUploadComponent },
   { path: 'fileDetails', component: DetailsUploadComponent },
   { path: 'users', component: UserListeComponent },
-  { path: 'users/:id', component: UserDetailsComponent },
   { path: 'image', component: AddImageComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'upload', component: UploadFilesComponent }
+  { path: 'coeffee', component: CoeffeeComponent },
+  { path: 'cake', component: CakeComponent },
+  { path: 'sandwitch', component: SandwitchComponent },
+  { path: 'drinks', component: DrinksComponent },
+  { path: 'jus', component: JusComponent }
 ];
 
 @NgModule({

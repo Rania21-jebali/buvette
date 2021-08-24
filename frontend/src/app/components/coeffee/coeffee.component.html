@@ -1,0 +1,25 @@
+<app-header></app-header>
+<h2>Coeffee</h2>
+<div class="container-lg" *ngFor="let article of article; let i = index;">
+<div class="col-lg-3 col-sm-6" *ngIf="article.categorieId==1"
+		>
+        <div class="product-item"  >
+		  
+		  <div class="pi-pic" >
+			<img src="assets/img/article/1.jpeg" alt="">
+			<div class="pi-links">
+				<a routerLink="cart" class="add-card"
+				[class.active]="i == currentIndex"
+				(click)="setActiveArticle(article, i)"
+                ><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+				<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+			</div>
+		  </div>
+		  <div class="pi-text" >
+			<h6>${{article.prix}</h6>
+			<p>{{ article.title }} </p>
+		</div>
+    </div>
+    </div>
+
+    
