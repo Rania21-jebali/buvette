@@ -9,7 +9,7 @@ exports.create = (req, res) => {
       quantite: req.body.quantite,
       total: req.body.total,
       description: req.body.description,
-      userId: req.body.userId
+      articleId: req.body.articleId
     };
   
     // Save Commande in the database

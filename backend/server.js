@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
-app.post('/file', upload.single('file'), (req, res, next) => {
+app.post('/image', upload.single('file'), (req, res, next) => {
   const file = req.file;
   console.log(file.filename);
   if (!file) {
@@ -30,6 +30,7 @@ app.post('/file', upload.single('file'), (req, res, next) => {
   }
     res.send(file);
 })
+
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -72,6 +73,7 @@ require("./app/routes/paiement.routes")(app);
 require("./app/routes/espece.routes")(app);
 require("./app/routes/cartebancaire.routes")(app);
 require("./app/routes/file.router")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

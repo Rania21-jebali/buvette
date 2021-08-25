@@ -1,14 +1,16 @@
+import { Article } from 'src/app/models/article.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Commande } from '../models/commande.model';
+
 
 const baseUrl = 'http://localhost:3000/api/commande';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CommandeService {
+export class CartService {
   
   constructor(private http: HttpClient) { }
 
@@ -35,7 +37,21 @@ export class CommandeService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
+  items: Article[] = [];
+  
+    addToCart(article: Article) {
+      this.items.push(article);
+    }
+  
+    getItems() {
+      return this.items;
+    }
+  
+    clearCart() {
+      this.items = [];
+      return this.items;
+    }
+  
+  }
   
 
-  
-}

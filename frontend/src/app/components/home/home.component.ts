@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
+import { Commande } from 'src/app/models/commande.model';
+import { CartService } from 'src/app/_services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +17,15 @@ export class HomeComponent implements OnInit {
   description='';
   categorie='';
   prix=0;
-
-  constructor(private articleService: ArticleService) { }
+  commande: Commande = {
+    quantite: 0,
+    total:0,
+    description: '',
+    articleId: 0
+  };
+  articles: Array<object> = [];
+  
+  constructor(private articleService: ArticleService,private cartService: CartService) { }
 
   ngOnInit(): void {
     this.retrieveArticle();
@@ -70,5 +79,8 @@ export class HomeComponent implements OnInit {
           console.log(error);
         });
   }
-
+ 
+ 
 }
+
+

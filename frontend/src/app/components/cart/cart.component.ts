@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 import { Commande } from 'src/app/models/commande.model';
-import { CommandeService } from 'src/app/_services/commande.service';
+import { CartService } from 'src/app/_services/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  
   currentArticle: Article = {
     title: '',
     description: '',
@@ -23,13 +22,13 @@ export class CartComponent implements OnInit {
     quantite: 0,
     total:0,
     description: '',
-    userId: 0
+    articleId: 0
   };
   currentCommande: Commande = {
     quantite: 0,
     total:0,
     description: '',
-    userId: 0
+    articleId: 0
   };
   public article: any = [];
   message = '';
@@ -38,8 +37,9 @@ export class CartComponent implements OnInit {
   images: any;
   multipleImages = [];
   public grandTotal !: number;
+  currentIndex = -1;
   constructor(private articleService: ArticleService,
-    private commandeService: CommandeService,
+    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -48,7 +48,10 @@ export class CartComponent implements OnInit {
       this.getArticle(this.route.snapshot.params.id);
       this.getCommande(this.route.snapshot.params.id);
     }
-  
+    setActiveArticle(article: Article, index: number): void {
+      this.currentArticle = article;
+      this.currentIndex = index;
+    }
     getArticle(id: string): void {
       this.articleService.get(id)
         .subscribe(
@@ -86,7 +89,7 @@ export class CartComponent implements OnInit {
     
             }
             removeCommande(id: string): void {
-              this.commandeService.delete(id)
+              this.cartService.delete(id)
                 .subscribe(
                   data => {
                     this.currentCommande = data;
@@ -97,4 +100,27 @@ export class CartComponent implements OnInit {
                   });
         
                 }
-          }
+                saveCommande(): void {
+                  const data = {
+                    total: this.commande.total,
+                    description: this.commande.description,
+                    quantite: this.commande.quantite,
+                    articleId:this.commande.articleId
+                  };
+              
+                  this.cartService.create(data)
+                    .subscribe(
+                      response => {
+                        console.log(response);
+                        this.submitted = true;
+                      },
+                      error => {
+                        console.log(error);
+                      });
+                }
+              
+               
+              
+              }
+              
+          

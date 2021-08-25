@@ -1,16 +1,24 @@
 var stream = require('stream');
-const db = require("../models/index.js");
+const db = require("../models");
+const fs = require("fs");
 const File = db.files;
+const Op = db.Sequelize.Op;
 
 exports.uploadFile = (req, res) => {
-	File.create({
+	const files = {
 		type: req.file.mimetype,
 		name: req.file.originalname,
 		data: req.file.buffer
-	}).then(() => {
-		res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
-	})
-}
+	  };
+	File.create(files).then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the File." });
+        });
+    };
 
 exports.listAllFiles = (req, res) => {
 	File.findAll({attributes: ['id', 'name']}).then(files => {

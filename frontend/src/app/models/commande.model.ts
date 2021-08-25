@@ -3,6 +3,6 @@ export class Commande {
     quantite?: number;
     total?: number;
     description?: string ;
-    userId?:number;
+    articleId?:number;
   }
   

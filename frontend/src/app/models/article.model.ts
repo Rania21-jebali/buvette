@@ -4,5 +4,6 @@ export class Article {
     description?: string;
     prix?: number ;
     categorieId?:number;
+    image?:string;
   }
   

@@ -41,6 +41,8 @@ db.espece = require("../models/espece.js")(sequelize, Sequelize);
 db.cartebancaire = require("../models/cartebancaire.js")(sequelize, Sequelize);
 db.file = require("../models/file.js")(sequelize, Sequelize);
 
+
+
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",

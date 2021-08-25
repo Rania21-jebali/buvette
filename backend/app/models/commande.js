@@ -9,11 +9,11 @@ module.exports = (sequelize, Sequelize) => {
       description: {
         type: Sequelize.STRING
       },
-      userId: {
+      articleId: {
         type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
-          model:'users',
+          model:'articles',
           key:'id'
         }
       }
