@@ -26,6 +26,7 @@ import { CakeComponent } from './components/cake/cake.component';
 import { SandwitchComponent } from './components/sandwitch/sandwitch.component';
 import { DrinksComponent } from './components/drinks/drinks.component';
 import { JusComponent } from './components/jus/jus.component';
+import { ArticleComponent } from './components/article/article.component';
 
 
 
@@ -52,7 +53,8 @@ import { JusComponent } from './components/jus/jus.component';
     CakeComponent,
     SandwitchComponent,
     DrinksComponent,
-    JusComponent
+    JusComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

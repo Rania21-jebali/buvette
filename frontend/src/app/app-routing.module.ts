@@ -14,6 +14,7 @@ import { FormUploadComponent } from './upload/form-upload/form-upload.component'
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import { UserListeComponent } from './components/user-liste/user-liste.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { AddImageComponent } from './components/add-image/add-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,6 +24,7 @@ import { CakeComponent } from './components/cake/cake.component';
 import { SandwitchComponent } from './components/sandwitch/sandwitch.component';
 import { DrinksComponent } from './components/drinks/drinks.component';
 import { JusComponent } from './components/jus/jus.component';
+import { ArticleComponent } from './components/article/article.component';
 
 const routes: Routes = [
   { path: "login" , component : LoginComponent },
@@ -34,11 +36,13 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'profile', component: ProfileComponent },
   { path: "ArticleList" , component : ArticleListeComponent },
+  { path: "articleD/:id" , component : ArticleComponent },
   { path: "article/:id" , component : ArticleDetailsComponent },
   { path: 'file', component: FormUploadComponent },
   { path: 'fileList', component: ListUploadComponent },
   { path: 'fileDetails', component: DetailsUploadComponent },
   { path: 'users', component: UserListeComponent },
+  { path: 'users/:id', component: UserDetailsComponent },
   { path: 'image', component: AddImageComponent },
   { path: 'cart', component: CartComponent },
   { path: 'coeffee', component: CoeffeeComponent },

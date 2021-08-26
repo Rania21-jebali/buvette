@@ -6,9 +6,9 @@
         <div class="product-item"  >
 		  
 		  <div class="pi-pic" >
-			<img src="assets/img/article/1.jpeg" alt="">
+			<img src="assets/img/article/15.jpeg" alt="">
 			<div class="pi-links">
-				<a routerLink="cart" class="add-card"
+				<a routerLink="/cart" class="add-card"
 				[class.active]="i == currentIndex"
 				(click)="setActiveArticle(article, i)"
                 ><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
@@ -16,7 +16,7 @@
 			</div>
 		  </div>
 		  <div class="pi-text" >
-			<h6>${{article.prix}</h6>
+			<h6>{{article.prix}} TND</h6>
 			<p>{{ article.title }} </p>
 		</div>
     </div>

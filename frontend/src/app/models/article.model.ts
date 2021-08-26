@@ -6,4 +6,8 @@ export class Article {
     categorieId?:number;
     image?:string;
   }
+  export interface serverResponse  {
+    count: number;
+    articles: Article[]
+  };
   

@@ -3,6 +3,7 @@ import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 import { Commande } from 'src/app/models/commande.model';
 import { CartService } from 'src/app/_services/cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +26,13 @@ export class HomeComponent implements OnInit {
   };
   articles: Array<object> = [];
   
-  constructor(private articleService: ArticleService,private cartService: CartService) { }
+  constructor(private articleService: ArticleService,private cartService: CartService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveArticle();
+    this.getArticle(this.route.snapshot.params.id);
   }
   retrieveArticle(): void {
     this.articleService.getAll()
@@ -76,6 +80,17 @@ export class HomeComponent implements OnInit {
           console.log(data);
         },
        ( error: any) => {
+          console.log(error);
+        });
+  }
+  getArticle(id: string): void {
+    this.articleService.get(id)
+      .subscribe(
+        data => {
+          this.currentArticle = data;
+          console.log(data);
+        },
+        error => {
           console.log(error);
         });
   }
