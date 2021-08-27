@@ -6,7 +6,9 @@
         <div class="product-item"  >
 		  
 		  <div class="pi-pic" >
-			<img src="assets/img/article/15.jpeg" alt="">
+			<img src="assets/img/article/15.jpeg" alt="" routerLink="/articleD/{{article.id }} " 
+			[class.active]="i == currentIndex"
+			(click)="setActiveArticle(article, i)">
 			<div class="pi-links">
 				<a routerLink="/cart" class="add-card"
 				[class.active]="i == currentIndex"

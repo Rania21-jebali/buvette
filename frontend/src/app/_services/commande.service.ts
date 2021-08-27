@@ -36,6 +36,17 @@ export class CommandeService {
     return this.http.delete(baseUrl);
   }
   
-
+  addToCart(payload:any) {
+    return this.http.post(baseUrl, payload);
+  }
+  getCartItems() {
+    return this.http.get(baseUrl);
+  }
+  increaseQty(payload:any) {
+    return this.http.post(baseUrl, payload);
+  }
+  emptyCart() {
+    return this.http.delete(baseUrl);
+  }
   
 }
