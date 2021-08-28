@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 import { Commande } from 'src/app/models/commande.model';
-import { CartService } from 'src/app/_services/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -39,7 +38,6 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   currentIndex = -1;
   constructor(private articleService: ArticleService,
-    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -88,38 +86,7 @@ export class CartComponent implements OnInit {
               });
     
             }
-            removeCommande(id: string): void {
-              this.cartService.delete(id)
-                .subscribe(
-                  data => {
-                    this.currentCommande = data;
-                    console.log(data);
-                  },
-                  error => {
-                    console.log(error);
-                  });
-        
-                }
-                saveCommande(): void {
-                  const data = {
-                    total: this.commande.total,
-                    description: this.commande.description,
-                    quantite: this.commande.quantite,
-                    articleId:this.commande.articleId
-                  };
-              
-                  this.cartService.create(data)
-                    .subscribe(
-                      response => {
-                        console.log(response);
-                        this.submitted = true;
-                      },
-                      error => {
-                        console.log(error);
-                      });
-                }
-              
-               
+            
               
               }
               

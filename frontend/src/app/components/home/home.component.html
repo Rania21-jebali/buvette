@@ -190,11 +190,12 @@
         <div class="product-item">
 		 
 		  <div class="pi-pic" >
-			<img src="assets/img/article/15.jpeg" alt="" routerLink="/articleD/{{article.id }} " 
+			<img src={{article.imageUrl}} alt="" routerLink="/articleD/{{article.id }} " 
+			class="img-responsive"
 			[class.active]="i == currentIndex"
 			(click)="setActiveArticle(article, i)">
 			<div class="pi-links">
-				<a routerLink="/cart" class="add-card"
+				<a routerLink="/shop/{{article.id}}" class="add-card"
 				[class.active]="i == currentIndex"
 				(click)="setActiveArticle(article, i)"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 				<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>

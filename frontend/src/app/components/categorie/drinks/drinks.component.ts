@@ -1,38 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
-import { Commande } from 'src/app/models/commande.model';
-import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-drinks',
+  templateUrl: './drinks.component.html',
+  styleUrls: ['./drinks.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DrinksComponent implements OnInit {
   article?: Article[];
   currentArticle: Article = {};
   currentIndex = -1;
   title = '';
   description='';
-  categorie='';
+  categorieId=0;
   prix=0;
-  imageUrl='';
-  commande: Commande = {
-    quantite: 0,
-    total:0,
-    description: '',
-    articleId: 0
-  };
-  articles: Array<object> = [];
-  
-  constructor(private articleService: ArticleService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+imageurl='';
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.retrieveArticle();
-    this.getArticle(this.route.snapshot.params.id);
   }
   retrieveArticle(): void {
     this.articleService.getAll()
@@ -83,19 +71,6 @@ export class HomeComponent implements OnInit {
           console.log(error);
         });
   }
-  getArticle(id: string): void {
-    this.articleService.get(id)
-      .subscribe(
-        data => {
-          this.currentArticle = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
- 
- 
+
+
 }
-
-

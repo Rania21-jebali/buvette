@@ -73,6 +73,7 @@ require("./app/routes/paiement.routes")(app);
 require("./app/routes/espece.routes")(app);
 require("./app/routes/cartebancaire.routes")(app);
 require("./app/routes/file.router")(app);
+require("./app/routes/panier.routes")(app);
 
 
 // set port, listen for requests

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
-import { Commande } from 'src/app/models/commande.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-article-liste',
+  templateUrl: './article-liste.component.html',
+  styleUrls: ['./article-liste.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ArticleListeComponent implements OnInit {
+
   article?: Article[];
   currentArticle: Article = {};
   currentIndex = -1;
@@ -18,22 +18,19 @@ export class HomeComponent implements OnInit {
   categorie='';
   prix=0;
   imageUrl='';
-  commande: Commande = {
-    quantite: 0,
-    total:0,
-    description: '',
-    articleId: 0
-  };
-  articles: Array<object> = [];
-  
+  message = '';
+  isDeleted=false;
+
   constructor(private articleService: ArticleService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.message = '';
     this.retrieveArticle();
-    this.getArticle(this.route.snapshot.params.id);
+    this.isDeleted=false;
   }
+
   retrieveArticle(): void {
     this.articleService.getAll()
       .subscribe(
@@ -56,16 +53,19 @@ export class HomeComponent implements OnInit {
     this.currentArticle = article;
     this.currentIndex = index;
   }
-  
+ 
+
   removeAllArticles(): void {
     this.articleService.deleteAll()
       .subscribe(
         (response: any) => {
           console.log(response);
           this.refreshList();
+          this.isDeleted=true;
         },
         (error: any) => {
           console.log(error);
+          this.isDeleted=false;
         });
   }
 
@@ -83,19 +83,21 @@ export class HomeComponent implements OnInit {
           console.log(error);
         });
   }
-  getArticle(id: string): void {
-    this.articleService.get(id)
+  deleteArticle(): void {
+    this.message = '';
+    this.articleService.delete(this.currentArticle.id)
       .subscribe(
-        data => {
-          this.currentArticle = data;
-          console.log(data);
+        response => {
+          console.log(response);
+          this.router.navigate(['/articles']);
+          this.message = response.message ? response.message : 'This article was deleted successfully!';
+          this.isDeleted=true;
         },
         error => {
           console.log(error);
+          this.isDeleted=false;
         });
   }
- 
- 
-}
 
+}
 

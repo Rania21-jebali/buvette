@@ -6,6 +6,12 @@ module.exports = (sequelize, Sequelize) => {
       description: {
         type: Sequelize.STRING
       },
+      imageUrl: {
+        type: Sequelize.STRING
+      },
+      quantite: {
+        type: Sequelize.INTEGER
+      },
       prix: {
         type: Sequelize.DOUBLE
       },

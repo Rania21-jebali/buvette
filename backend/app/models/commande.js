@@ -1,19 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
     const Commande = sequelize.define("commande", {
-      quantite: {
-        type: Sequelize.INTEGER
-      },
       total: {
         type: Sequelize.DOUBLE
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      articleId: {
+      userId: {
         type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
-          model:'articles',
+          model:'users',
           key:'id'
         }
       }
