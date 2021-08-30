@@ -17,7 +17,6 @@ import { ArticleListeComponent } from './components/article1/article-liste/artic
 import { ArticleDetailsComponent } from './components/article1/article-details/article-details.component';
 import { UserListeComponent } from './components/user/user-liste/user-liste.component';
 import { UserDetailsComponent } from './components/user/user-details/user-details.component';
-import { AddImageComponent } from './components/add-image/add-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -29,6 +28,9 @@ import { JusComponent } from './components/categorie/jus/jus.component';
 import { ArticleComponent } from './components/article1/article/article.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ArticleDeleteComponent } from './components/article1/article-delete/article-delete.component';
+import { UserDeleteComponent } from './components/user/user-delete/user-delete.component';
+
 
 
 
@@ -47,7 +49,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ArticleListeComponent,
     ArticleDetailsComponent,
     UserListeComponent,
-    AddImageComponent,
     CartComponent,
     HeaderComponent,
     FooterComponent,
@@ -59,7 +60,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     JusComponent,
     ArticleComponent,
     ShopComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ArticleDeleteComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,6 @@
 <div>
     <div class="submit-form">
       <h2>Add Article</h2>
-      <div *ngIf="!submitted">
         <div class="form-group">
           <label for="title">Title</label>
           <input
@@ -23,7 +22,7 @@
             [(ngModel)]="article.title"
             name="title"
           />
-        </div>
+       
   
         <div class="form-group">
           <label for="description">Description</label>

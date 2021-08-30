@@ -18,9 +18,7 @@ export class AddArticleComponent implements OnInit {
     imageUrl: ''
   };
   submitted = false;
-  title = 'fileUpload';
-  images: any;
-  multipleImages = [];
+  
   constructor(private articleService: ArticleService,private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -56,20 +54,7 @@ export class AddArticleComponent implements OnInit {
       imageUrl:''
     };
   }
-  selectImage(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.images = file;
-    }
-  }
-  onSubmit(){
-    const formData = new FormData();
-    formData.append('file', this.images);
-
-    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
-  }
+  
+  
 
 }

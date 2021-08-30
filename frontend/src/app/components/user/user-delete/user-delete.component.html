@@ -1,0 +1,48 @@
+<app-board-admin></app-board-admin>
+  <div class="contents">
+  <div class="container">
+  <div class="row align-items-center justify-content-center">
+  <div class="form-block mx-auto">
+    <img src="assets/img/arrow-left-circle.svg" class="img-thumbnail" routerLink="/users">
+  <div class="text-center mb-5">
+    <h1>  Delete User</h1>
+  </div>
+
+    <div class="col-md-6">
+      <div *ngIf="currentUser.id">
+        <div>
+          <label><strong>Firstname:</strong></label> {{ currentUser.firstname }}
+        </div>
+        <div>
+          <label><strong>Lastname:</strong></label>
+          {{ currentUser.lastname }}
+        </div>
+        <div>
+          <label><strong>Email:</strong></label>
+          {{ currentUser.email}}
+        </div>
+        <div>
+            <label><strong>Phone:</strong></label>
+            {{ currentUser.phone}}
+          </div>
+        
+        
+    
+        <button class="btn btn-danger btn-sm" (click)="deleteUser()">
+          Delete
+        </button>
+        <div class="alert alert-success" role="alert" *ngIf="isDeleted">
+          {{ message }}
+        </div>
+      </div>
+  
+      <div *ngIf="!currentUser">
+        <br />
+        <p>Please click on a user...</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+ 

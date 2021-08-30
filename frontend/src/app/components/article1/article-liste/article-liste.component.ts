@@ -20,6 +20,8 @@ export class ArticleListeComponent implements OnInit {
   imageUrl='';
   message = '';
   isDeleted=false;
+  articles: Array<object> = [];
+  
 
   constructor(private articleService: ArticleService,
     private route: ActivatedRoute,

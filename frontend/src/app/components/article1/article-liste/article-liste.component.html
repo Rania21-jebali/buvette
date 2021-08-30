@@ -1,10 +1,8 @@
 <app-board-admin></app-board-admin>
-<div class="d-md-flex half">
-  <div class="bg" style="background-image:url(assets/img/bg_1.jpg)"></div>
+
   <div class="contents">
   <div class="container">
   <div class="row align-items-center justify-content-center">
-  <div class="col-md-12">
   <div class="form-block mx-auto">
   <div class="text-center mb-5">
   <h3 class="text-uppercase">Articles List </h3>
@@ -29,80 +27,60 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let article of article; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveArticle(article, i)"
-        >
-          {{ article.title }}
-        </li>
-      </ul>
-  
-      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllArticles()">
-        Remove All
-      </button>
-      <div class="alert alert-success" role="alert" *ngIf="isDeleted">
-          {{ message }}
+    
+  <div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Article Name</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let article of article; let i = index" [class.active]="i == currentIndex"
+                    (click)="setActiveArticle(article, i)">
+                        <td>{{i+1}}</td>
+                        <td>{{article.title}}
+                          <img src={{article.imageUrl}} alt="" routerLink="/articleD/{{article.id }} ">
+                        </td>
+                        <td style="width: 25%;">{{article.description}}</td>
+                        <th style="width: 12%;">{{article.prix}}</th>
+                        <td style="width: 12%;">
+                          <button class="btn btn-success btn-sm" routerLink="/article/{{ article.id }}">
+                            Update
+                          </button>
+                          </td>
+                          <td style="width: 12%;" >
+                          <button class="btn btn-danger btn-sm" 
+                          routerLink="/deleteArticle/{{ article.id }}"
+                           >
+                            Delete
+                          </button>
+                          
+                          
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                        <td> <button class="m-3 btn btn-sm btn-danger" (click)="removeAllArticles()">
+                          Remove All
+                        </button>
+                        <div class="alert alert-success" role="alert" *ngIf="isDeleted">
+                            {{ message }}
+                          </div></td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="col-md-6">
-      <div *ngIf="currentArticle.id">
-        <h4>Article</h4>
-        <div>
-          <label><strong>Title:</strong></label> {{ currentArticle.title }}
-        </div>
-        <div>
-          <label><strong>Description:</strong></label>
-          {{ currentArticle.description }}
-        </div>
-        <div>
-          <label><strong>Prix:</strong></label>
-          {{ currentArticle.prix}}
-        </div>
-        <div *ngIf="currentArticle.categorieId==1">
-          <label><strong>Categorie:</strong></label>
-          Coeffee
-        </div>
-        <div *ngIf="currentArticle.categorieId==2">
-          <label><strong>Categorie:</strong></label>
-          Cake
-        </div>
-        <div *ngIf="currentArticle.categorieId==3">
-          <label><strong>Categorie:</strong></label>
-          Sandwich
-        </div>
-        <div *ngIf="currentArticle.categorieId==4">
-          <label><strong>Categorie:</strong></label>
-          Drinks
-        </div>
-        <div *ngIf="currentArticle.categorieId==5">
-          <label><strong>Categorie:</strong></label>
-          Jus
-        </div>
-        
-        <button class="btn btn-success btn-sm" routerLink="/article/{{ currentArticle.id }}">
-          Update
-        </button>
-        <button class="btn btn-danger btn-sm" (click)="deleteArticle()">
-          Delete
-        </button>
-        <div class="alert alert-success" role="alert" *ngIf="isDeleted">
-          {{ message }}
-        </div>
-      </div>
-  
-      <div *ngIf="!currentArticle">
-        <br />
-        <p>Please click on a Article...</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
+</div>
+</div>
+

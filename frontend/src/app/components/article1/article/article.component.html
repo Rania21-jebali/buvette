@@ -53,7 +53,7 @@
                         <div class="pro-qty"><input type="text" value="1"></div>
                     </div>
 					
-					<a class="site-btn" 
+					<a class="site-btn" routerLink="/shop/{{currentArticle.id}}"
 					 
 					
 					>Ajouter au panier</a> 
@@ -104,7 +104,40 @@
 		</div>
 	</section>
 	<!-- product section end -->
-
+<!-- Related product section -->
+<section class="related-product-section">
+	<div class="container">
+		<div class="section-title text-uppercase">
+			<h2>Other Products 
+			</h2>
+		</div>
+		<div class="row" >
+			<div class="col-lg-3 col-sm-6" *ngFor="let article of article; let i = index">
+				<div class="product-item" >
+					<div class="pi-pic">
+						<img src={{article.imageUrl}} alt="" class="img-fluid"
+						style="width:200px ; height:200px"
+						routerLink="/articleD/{{article.id }} "
+						[class.active]="i == currentIndex"
+			(click)="setActiveArticle(article, i)">
+						<div class="pi-links">
+							<a routerLink="/shop/{{article.id}}" class="add-card"
+							[class.active]="i == currentIndex"
+				(click)="setActiveArticle(article, i)"><i class="flaticon-bag"></i><span>Ajouter au panier</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>{{article.prix}} TND</h6>
+						<p>{{article.title}}</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!-- Related product section end -->
 
 	
 <app-footer></app-footer>

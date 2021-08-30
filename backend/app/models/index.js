@@ -39,7 +39,6 @@ db.facture = require("../models/facture.js")(sequelize, Sequelize);
 db.paiement = require("../models/paiement.js")(sequelize, Sequelize);
 db.espece = require("../models/espece.js")(sequelize, Sequelize);
 db.cartebancaire = require("../models/cartebancaire.js")(sequelize, Sequelize);
-db.file = require("../models/file.js")(sequelize, Sequelize);
 db.panier = require("../models/panier.js")(sequelize, Sequelize);
 
 

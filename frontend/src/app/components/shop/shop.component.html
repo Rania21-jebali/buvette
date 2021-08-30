@@ -59,7 +59,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4 card-right">
-					<a routerLink="/checkout" class="site-btn">Proceed to checkout</a>
+					<a routerLink="/checkout/{{currentArticle.id }}" class="site-btn">Proceed to checkout</a>
 					<a href="" class="site-btn sb-dark">Continue shopping</a>
 				</div>
 			</div>
@@ -77,9 +77,15 @@
 				<div class="col-lg-3 col-sm-6" *ngFor="let article of article; let i = index">
 					<div class="product-item" >
 						<div class="pi-pic">
-							<img src={{article.imageUrl}} alt="">
+							<img src={{article.imageUrl}} alt="" class="img-fluid"
+							style="width:200px ; height:200px"
+							routerLink="/articleD/{{article.id }} "
+						[class.active]="i == currentIndex"
+			          (click)="setActiveArticle(article, i)">
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Ajouter au panier</span></a>
+								<a routerLink="/shop/{{article.id}}" class="add-card"
+								[class.active]="i == currentIndex"
+					(click)="setActiveArticle(article, i)" class="add-card"><i class="flaticon-bag"></i><span>Ajouter au panier</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
