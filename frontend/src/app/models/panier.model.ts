@@ -3,4 +3,5 @@ export class Panier {
     total?: number;
     quantite?: number;
     articleId?:number;
+    commandeId?:number;
   }

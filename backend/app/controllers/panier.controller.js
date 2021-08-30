@@ -23,7 +23,23 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while creating the Panier." });
         });
     };
-
+    // Retrieve all Article from the database.
+    exports.findAll = (req, res) => {
+        const title = req.query.title;
+        var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+      
+        Article.findAll({ where: condition })
+          .then(data => {
+            res.send(data);
+          })
+          .catch(err => {
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while retrieving panier."
+            });
+          });
+      };
+     
 
 // Find a single PAnier with an id
 exports.findOne = (req, res) => {

@@ -4,6 +4,7 @@ const Article = require("../models/article");
 const Cart = require("../models/cart");
 
 
+
 // Retrieve all Article from the database.
 exports.findAll = (req, res) => {
     const title = req.query.title;

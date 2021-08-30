@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PanierService } from 'src/app/_services/panier.service';
+import { Panier } from 'src/app/models/panier.model';
 
 
 @Component({
@@ -19,8 +21,14 @@ export class ArticleComponent implements OnInit {
   imageUrl='';
   articles: Array<object> = [];
   article?: Article[];
-  
-  constructor(private articleService: ArticleService,
+  panier: Panier = {
+    total: 0,
+    quantite:0,
+    articleId: 0, 
+    commandeId:0,
+  };
+  submitted = false;
+  constructor(private articleService: ArticleService,private panierService: PanierService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -62,7 +70,34 @@ export class ArticleComponent implements OnInit {
     this.currentArticle = {};
     this.currentIndex = -1;
   }
+  savePanier(): void {
+    const data = {
+      total: this.panier.total,
+      quantite: this.panier.quantite,
+      articleId: this.panier.articleId,
+      commandeId:this.panier.commandeId,
+    };
 
+    this.panierService.create(data)
+      .subscribe(
+        (response:any) => {
+          console.log(response);
+          this.submitted = true;
+        },
+        (error:any) => {
+          console.log(error);
+        });
+  }
+
+  newArticle(): void {
+    this.submitted = false;
+    this.panier = {
+      total:0 ,
+      quantite:0,
+      articleId: 0,
+      commandeId:0,
+    };
+  }
   
 
 }

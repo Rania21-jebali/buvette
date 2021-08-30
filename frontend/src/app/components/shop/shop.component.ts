@@ -1,7 +1,11 @@
+import { PanierService } from './../../_services/panier.service';
+import { Commande } from './../../models/commande.model';
+import { Panier } from './../../models/panier.model';
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/_services/article.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shop',
@@ -21,7 +25,8 @@ export class ShopComponent implements OnInit {
   article?: Article[];
   constructor(private articleService: ArticleService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getArticle(this.route.snapshot.params.id);
@@ -73,6 +78,7 @@ export class ShopComponent implements OnInit {
           console.log(error);
         });
   }
+  
 
 
 }
